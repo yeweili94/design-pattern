@@ -10,6 +10,12 @@ public:
     void performQuack() {
         _quackbehavior->quack();
     }
+    void setflybehavior(FlyBehavior *fb) {
+        _flybehavior = fb;
+    } 
+    void setquackbehavior(QuackBehavior *qb) {
+        _quackbehavior = qb;
+    }
     void swim() {
         std::cout << "all duck can swim..." << std::endl;
     }
@@ -42,15 +48,35 @@ public:
     }
 };
 
+class ModuleDuck : public Duck {
+public:
+    ModuleDuck() : Duck() {
+        _quackbehavior = new MuteQuack();
+    }
+    void display() {
+        std::cout << "I am a ModuleDuck..." << std::endl;
+    }
+};
 
+static void printline() {
+    std::cout << "**********************************" << std::endl;
+}
 int main() {
     Duck *mallard = new MallardDuck();
     mallard->display();
     mallard->performQuack();
     mallard->performFly();
+    printline();
     
     Duck *duck = new RocketDuck();
     duck->display();
     duck->performQuack();
     duck->performFly();
+    printline();
+
+    Duck *moduleduck = new ModuleDuck();
+    moduleduck->setflybehavior(new FlyWithRocket());
+    moduleduck->display();
+    moduleduck->performQuack();
+    moduleduck->performFly();
 }
