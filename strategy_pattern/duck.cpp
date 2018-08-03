@@ -26,6 +26,7 @@ protected:
     QuackBehavior* _quackbehavior;
 };
 
+//MallardDuck
 class MallardDuck : public Duck {
 public:
     MallardDuck() : Duck() {
@@ -37,6 +38,7 @@ public:
     }
 };
 
+//RocketDuck
 class RocketDuck : public Duck {
 public:
     RocketDuck() : Duck() {
@@ -48,6 +50,7 @@ public:
     }
 };
 
+//ModuleDuck
 class ModuleDuck : public Duck {
 public:
     ModuleDuck() : Duck() {
@@ -61,6 +64,7 @@ public:
 static void printline() {
     std::cout << "**********************************" << std::endl;
 }
+
 int main() {
     Duck *mallard = new MallardDuck();
     mallard->display();
