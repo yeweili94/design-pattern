@@ -1,0 +1,11 @@
+weather.cpp: In function ‘int main()’:
+weather.cpp:65:48: error: invalid new-expression of abstract class type ‘WeatherData’
+     WeatherData *weatherdata = new WeatherData();
+                                                ^
+weather.cpp:5:7: note:   because the following virtual functions are pure within ‘WeatherData’:
+ class WeatherData : public Subject {
+       ^
+In file included from weather.cpp:3:0:
+observer.h:7:18: note: 	virtual void Subject::notifyObserver()
+     virtual void notifyObserver() = 0;
+                  ^
