@@ -68,11 +68,11 @@ public:
         splitter->split();
     }
 private:
-    SplitterFactory* factory;
+    SplitterFactory* factory; //不依赖具体的类
 };
 
 int main() {
-    SplitterFactory* factory = new BinarySplitterFactory();
+    SplitterFactory* factory = new TxtSplitterFactory();
     MainForm* mainform = new MainForm(factory);
     mainform->button_click();
 }
