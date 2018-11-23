@@ -1,3 +1,0 @@
-/home/yeweili/study/github/head-fifst-design-pattern/strategy_pattern/build/CMakeFiles/edit_cache.dir
-/home/yeweili/study/github/head-fifst-design-pattern/strategy_pattern/build/CMakeFiles/rebuild_cache.dir
-/home/yeweili/study/github/head-fifst-design-pattern/strategy_pattern/build/CMakeFiles/strategy.dir

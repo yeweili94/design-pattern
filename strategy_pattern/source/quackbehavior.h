@@ -2,7 +2,8 @@
 
 class QuackBehavior {
 public:
-    QuackBehavior() {}
+    QuackBehavior() = default;
+    virtual ~QuackBehavior() {}
     virtual void quack() = 0;
 };
 

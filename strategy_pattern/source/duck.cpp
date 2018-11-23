@@ -3,7 +3,8 @@
 
 class Duck {
 public:
-    Duck() {}
+    Duck() = default;
+    virtual ~Duck() {}
     void performFly() {
         _flybehavior->fly();
     }
@@ -12,7 +13,7 @@ public:
     }
     void setflybehavior(FlyBehavior *fb) {
         _flybehavior = fb;
-    } 
+    }
     void setquackbehavior(QuackBehavior *qb) {
         _quackbehavior = qb;
     }
@@ -33,7 +34,7 @@ public:
         _quackbehavior = new Quack();
         _flybehavior = new FlyWithWings();
     }
-    void display() {
+    void display() override{
         std::cout << "I am a MallardDuck" << std::endl;
     }
 };
@@ -45,7 +46,7 @@ public:
         _quackbehavior = new MuteQuack();
         _flybehavior = new FlyWithRocket();
     }
-    void display() {
+    void display() override{
         std::cout << "I am a RocketDuck...." << std::endl;
     }
 };
@@ -55,8 +56,9 @@ class ModuleDuck : public Duck {
 public:
     ModuleDuck() : Duck() {
         _quackbehavior = new MuteQuack();
+        //玩具鸭flybehavior暂时没有设置
     }
-    void display() {
+    void display() override{
         std::cout << "I am a ModuleDuck..." << std::endl;
     }
 };
@@ -71,13 +73,13 @@ int main() {
     mallard->performQuack();
     mallard->performFly();
     printline();
-    
+    //////////////////
     Duck *duck = new RocketDuck();
     duck->display();
     duck->performQuack();
     duck->performFly();
     printline();
-
+    /////////////////
     Duck *moduleduck = new ModuleDuck();
     moduleduck->setflybehavior(new FlyWithRocket());
     moduleduck->display();
